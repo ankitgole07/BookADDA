@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Product Details form</title>
+
+  <script src="https://kit.fontawesome.com/74e6fadba6.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap(main).css">
+  <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/pform.css">
+
+</head>
+<body>
+  {% block body %}
+  <!--NavBar-->
+
+<div class="menu-wrap">
+  <input type="checkbox" class="toggler" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <ul>
+        <li><img src="/static/images/Profile.png" height="30%" width="30%"></li>
+        <li style="color: white; font-size: 2rem;">{{session.name}}</li>
+        <li><a href="{{url_for('welcome')}}">Profile</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Wallet</a></li>
+        <li><a href="#">Refer a Friend</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <header>
+   <nav>
+     <ul>
+     <li><h1>  BookADDA</h1></li>
+     </ul>
+    </nav>
+
+     <nav>
+      <ul>
+      <li><a href="{{url_for('welcome')}}">Home</a></li>
+      <li><a href="{{url_for('profile')}}"> Profile</a></li>
+      <li><a href="{{url_for('cart')}}">My Cart</a></li>
+      </ul>
+    </nav>
+
+    <nav>
+     <ul>
+      <form action="" autocomplete="on">
+       <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
+     </form>
+     </ul>
+    </nav>
+    </header>
+
+
+  <!--Main Component-->
+
+
+<div class="container">
+
+ <div id="form">
+<h1>Book Details</h1><br>
+ <form method="POST">
+ 	
+    <div class="form-group"><i class="fas fa-check"></i>
+      <label for="inputEmail4"><h4>Title</h4></label>
+      <input type="text" name="title" class="form-control" id="inputEmail4" placeholder="Enter Book Title">
+    </div>
+  <div class="form-row">
+    <div class="form-group col-md-6"><i class="fas fa-pen-nib fa-1x"></i>
+      <label for="inputEmail4"><h4>Author Name</h4></label>
+      <input type="text" name="author" class="form-control" id="inputEmail4" placeholder="Enter Author Name">
+    </div>
+    <div class="form-group col-md-6"><i class="fas fa-user-tie"></i>
+      <label for="inputEmail4"><h4>Publisher Name</h4></label>
+      <input type="text" name="publisher" class="form-control" id="inputEmail4" placeholder="Enter Publisher Name">
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-4"><i class="fas fa-bookmark"></i>
+      <label for="inputEmail4"><h4>Edition</h4></label>
+      <input type="text" name="edition" class="form-control" id="inputEmail4" placeholder="Enter Edition Name">
+    </div>
+    <div class="form-group col-md-4"><i class="fas fa-graduation-cap"></i>
+      <label for="inputEmail4"><h4>Semester</h4></label>
+      <select name="semester" class="custom-select">
+        <option selected> Select Semester</option>
+        <option value="PDF"> 1 </option>
+        <option value="Books"> 2 </option>
+        <option value="Books"> 3 </option>
+        <option value="Books"> 4 </option>
+        <option value="Books"> 5 </option>
+        <option value="Books"> 6 </option>
+        <option value="Books"> 7 </option>
+        <option value="Books"> 8 </option>
+      </select>
+    </div>
+    <div class="form-group col-md-4"><i class="fas fa-clipboard-list"></i>
+      <label for="inputEmail4"><h4>Type</h4></label>
+      <select name="category" class="custom-select" >
+        <option selected> Select type</option>
+        <option value="PDF"> PDF </option>
+        <option value="Books"> Books </option>
+      </select>
+    </div>
+  </div> 
+
+  <div class="form-row">
+    <div class="form-group col-md-3"><i class="fas fa-rupee-sign"></i>
+    <label for="inputCity"><h4>Price</h4></label>
+      <input type="text" name="price" class="form-control" id="inputCity" placeholder="Enter Price">
+    </div>
+    <div class="form-group col-md-9"><i class="fas fa-camera"></i>
+      <label for="customFile"><h4>Add Book Images</h4></label>
+      <div class="custom-file">
+    	<input type="file" class="custom-file-input" id="customFile" disabled>
+    	<label class="custom-file-label" for="customFile">Choose file</label>
+  	 </div>
+    </div>
+  </div>
+   <div class="form-group"><i class="fas fa-info"></i>
+      <label for="inputAddress2"><h4>Book Description</h4></label>
+      <input type="text" name="description" class="form-control" id="inputAddress2" placeholder="What is the book about?"><br>
+   </div>
+   <div class="row justify-content-around">
+    <button type="submit" class="btn btn-outline-success" href="{{url_for('product_form')}}" style =" border-radius:2rem;"> Add Another Book </button>
+    <button type="submit" class="btn btn-outline-success" style =" border-radius:2rem;"> Done ! </button>
+  </div>
+</form>
+</div>
+</div>
+
+<script>
+// Name of the file appears on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+{% endblock %}
+</body>
+</html>

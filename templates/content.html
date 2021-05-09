@@ -1,0 +1,200 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+{% include 'includes/_messages.html' %}
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap(main).css">
+	<link rel="stylesheet" href="/static/css/contents.css"> <!-- Resource style -->
+	<script src="/static/js/contents.js"></script> <!-- Modernizr -->
+	<script src="https://kit.fontawesome.com/74e6fadba6.js" crossorigin="anonymous"></script>
+  	
+
+
+	<title>Contents Page</title>
+</head>
+<body>
+	{% block body %}
+<div class="context">
+	<div class="menu-wrap">
+  <input type="checkbox" class="toggler" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <ul>
+		<li><img src="/static/images/Profile.png" height="30%" width="30%"></li>
+		<li style="color: white; font-size: 2rem;">{{session.name}}</li>
+        <li><a href="{{url_for('welcome')}}">Profile</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Wallet</a></li>
+        <li><a href="#">Refer a Friend</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+	<header>
+	 <nav>
+     <ul>
+     <li><h1 style=" font-family: 'Exo', sans-serif;"><b>  BookADDA </b></h1></li>
+     </ul>
+    </nav>
+
+     <nav>
+      <ul>
+      <li><a href="{{url_for('welcome')}}">Home</a></li>
+      <li><a href="{{url_for('profile')}}">Profile</a></li>
+      <li><a href="{{url_for('cart')}}">My Cart</a></li>
+      </ul>
+    </nav>
+
+    <nav>
+     <ul>
+      <form action="" autocomplete="on">
+       <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
+     </form>
+     </ul>
+    </nav>
+    </header>
+
+
+
+    <div class="cd-header justify-content-center">
+		<h1><b>Currently Available</b></h1>
+
+	</div>
+
+	<main class="cd-main-content">
+		<div class="cd-tab-filter-wrapper">
+			<div class="cd-tab-filter">
+				<ul class="cd-filters">
+					<li class="placeholder"> 
+						<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
+					</li> 
+					<li class="filter"><a  class="selected" href="#0" data-type="all">All</a></li>
+					<li class="filter" data-filter=".color-1"><a  href="#0" data-type="color-1">Books</a></li>
+					<li class="filter" data-filter=".color-2"><a  href="#0" data-type="color-2">PDF</a></li>
+				</ul> <!-- cd-filters -->
+			</div> <!-- cd-tab-filter -->
+		</div> <!-- cd-tab-filter-wrapper -->
+
+		<section class="cd-gallery">
+			<ul>
+				{% for b in booklist %}
+				<li class="mix color-1 check1 radio2 option3" style="background:#ffffffb8"><a href="{{url_for('product_details',Book_id = b.Book_id)}}"><img src="/static/images/img/img-1.jpg" alt="Image 1"><center><b><h5 style="color:black;">{{b.Book_name}}</h5></b></center></a></li>
+				{% endfor %}
+			</ul>
+			<div class="cd-fail-message">No results found</div>
+		</section> <!-- cd-gallery -->
+
+		<div class="cd-filter">
+			<form method="POST">
+				<div class="cd-filter-block">
+					<h4>Editions</h4>
+					{% for editions in edition %}
+					<ul class="cd-filter-content cd-filters list" style="list-style-type: none ;">
+						<li>
+							<input name="books" value="{{editions.Edition}}" class="filter" data-filter=".check1" type="checkbox" id="checkbox1" checked>
+			    			<label class="checkbox-label" for="checkbox1">{{editions.Edition}}</label>
+						</li>
+					</ul>
+					{% endfor %}
+				</div> 
+				<div class="cd-filter-block">
+					<h4>Authors</h4>
+					{% for authors in author %}
+					<ul class="cd-filter-content cd-filters list" style="list-style-type: none ;">
+						<li>
+							<input class="filter" data-filter=".check4" type="checkbox" id="checkbox1">
+			    			<label class="checkbox-label" for="checkbox4">{{authors.Author}}</label>
+						</li>
+					</ul> 
+					{% endfor %}
+				</div> 
+				<div class="cd-filter-block">
+					<h4>Publishers</h4>
+					{% for publishers in publisher %}
+					<ul class="cd-filter-content cd-filters list" style="list-style-type: none ;">
+						<li>
+							<input class="filter" data-filter=".check4" type="checkbox" id="checkbox1">
+			    			<label class="checkbox-label" for="checkbox4">{{publishers.Publisher}}</label>
+						</li>
+					</ul> 
+					{% endfor %}
+				</div> 
+				<div class="cd-filter-block">
+					<h4>Select</h4>
+					
+					<div class="cd-filter-content">
+						<div class="cd-select cd-filters">
+							<select class="filter" name="selectThis" id="selectThis">
+								<option value="">Choose an option</option>
+								<option value=".option1">Option 1</option>
+								<option value=".option2">Option 2</option>
+								<option value=".option3">Option 3</option>
+								<option value=".option4">Option 4</option>
+							</select>
+						</div> <!-- cd-select -->
+					</div> <!-- cd-filter-content -->
+				</div> <!-- cd-filter-block -->
+				<button type="submit">Apply!</button>
+			</form>
+
+			<a href="#0" class="cd-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+		</div> <!-- cd-filter -->
+
+		<a href="#0" class="cd-filter-trigger"><img src="/static/images/filter.png" height="55%" width="4.5%" style="padding: 5px;">Filters</a>
+	</main> <!-- cd-main-content -->
+</div>
+<div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+	</div >
+	{% endblock %}
+</body>
+
+<script src="/static/js/jquery-2.1.1.js"></script>
+<script src="/static/js/jquery.mixitup.min.js"></script>
+<script src="/static/js/main.js"></script> <!-- Resource jQuery -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5f15f0c47258dc118bee9b7c/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+</html>

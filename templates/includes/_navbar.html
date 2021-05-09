@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/static/css/navbar.css"> <!-- Resource style -->
+<div class="menu-wrap">
+    <input type="checkbox" class="toggler" />
+    <div class="hamburger">
+      <div></div>
+    </div>
+    <div class="menu">
+      <div>
+        <ul>
+          <li><img src="/static/images/Profile.png" height="30%" width="30%"></li>
+          <li style="color: white; font-size: 2rem;">{{session.name}}</li>
+          <li><a href="{{ url_for('profile') }}">Profile</a></li>
+          <li><a href="{{ url_for('logout') }}">Logout</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Wallet</a></li>
+          <li><a href="#">Refer a Friend</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+      <header>
+       <nav>
+       <ul>
+       <li><h1><a href="{{url_for('welcome')}}">BookADDA</a></h1></li>
+       </ul>
+      </nav>
+  
+       <nav>
+        <ul>
+        <li><a href="{{ url_for('welcome') }}">Home</a></li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('cart') }}">My Cart</a></li>
+        </ul>
+      </nav>
+      </header>

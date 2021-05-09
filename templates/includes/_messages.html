@@ -1,0 +1,128 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+<div id="myModal" class="modal">
+  <div class="modal-content" style="background-color: #3dc610;color:white;border: 2px white;">
+      <h4 >{{message}}  <span class="close" style="font-size: 2.3rem;color:white;">x</span></h4>      
+  </div>
+</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% if error %}
+<div id="myModal" class="modal">
+  <div class="modal-content" style="background-color: #E53935;color:white;border: 2px white;">
+      <h4 >{{error}}  <span class="close" style="font-size: 2.3rem;color:white;">x</span></h4>
+  </div>
+</div>
+{% endif %}
+
+{% if success %}
+
+<div id="myModal" class="modal" style="background-color: #3dc610;color:white;border: 2px white;">
+  <div class="modal-content">
+      <h4>{{success}}  <span class="close" style="font-size: 2.3rem;color:white;">x</span></h4>
+  </div>
+</div>
+{% endif %}
+
+
+
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  border-radius: 10px;
+  margin: auto;
+  top: 10%;
+  transform: translate(-0%, -70%);
+  padding:2.5%;
+  border: 1px solid #888;
+  width:40%!important;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+$(document).ready(function() {
+  modal.style.display = "block";
+})
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>

@@ -1,0 +1,297 @@
+﻿
+<!--cur = mysql.connection.cursor()
+
+		#CHECK IF AUTHOR IS ALREADY PRESENT
+		result1 = cur.execute("select * from author where Author = %s",[author])
+		if result1 > 0:
+			data1 = cur.fetchone()
+		else:
+			cur.execute("insert into author(Author_id,Author) values(%s,%s)",(101,author))
+
+		#CHECK IF PUBLISHER IS ALREADY PRESENT
+		result2 = cur.execute("select * from publisher where Publisher = %s",[publisher])
+		if result2 > 0:
+			data2 = cur.fetchone()
+			p_id = data2.get("P_id")
+		else:
+			cur.execute("insert into publisher(P_id,Publisher) values(%s,%s)",(201,publisher))
+
+		#CHECK IF EDITION IS ALREADY PRESENT
+		result3 = cur.execute("select * from edition where Edition = %s",[edition])
+		if result3 > 0:
+			data3 = cur.fetchone()
+			e_id = data3.get("Edition_id")
+		else:
+			cur.execute("insert into edition(Edition_id,Edition) values(%s,%s)",(301,edition))
+
+
+		result1 = cur.execute("select * from author where Author = %s",[author])
+		data1 = cur.fetchone()
+		a_id = data1.get("Author_id")
+		app.logger.info(a_id)
+
+		result2 = cur.execute("select * from publisher where Publisher = %s",[publisher])
+		data2 = cur.fetchone()
+		p_id = data2.get("P_id")
+
+		result3 = cur.execute("select * from edition where Edition = %s",[edition])
+		data3 = cur.fetchone()
+		e_id = data3.get("Edition_id")
+
+		cur.execute("insert into book(Book_id,Book_name,Category,Price,Description,S_id,Author_id,P_id,Edition_id) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)",(7501,title,category,price,description,35021,a_id,p_id,e_id))
+
+        cur.close() 
+	-->
+	
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>Profile</title>
+</head>
+
+<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
+	<!--<link rel="stylesheet" href="/static/css/profile.css">-->
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap(main).css">
+	
+	<link rel="stylesheet" type="text/css" href="/static/css/profile.css">
+	<script src="https://kit.fontawesome.com/74e6fadba6.js" crossorigin="anonymous"></script>
+<body>
+{% block body %}
+{% include 'includes/_navbar.html' %}
+<!--Navbar-->
+
+<!--<div class="menu-wrap">
+	<input type="checkbox" class="toggler" />
+	<div class="hamburger">
+	<div></div>
+	</div>
+	<div class="menu">
+	<div>
+		<ul>
+		<li><img src="Profile.png" height="30%" width="30%"></li>
+		<li><a href="#">Profile</a></li>
+		<li><a href="#">Logout</a></li>
+		<li><a href="#">Wishlist</a></li>
+		<li><a href="#">Wallet</a></li>
+		<li><a href="#">Refer a Friend</a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+	<header>
+		<nav>
+		<ul>
+		<li><h1>  BookADDA</h1></li>
+		</ul>
+	</nav>
+
+		<nav>
+		<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Contents</a></li>
+		<li><a href="#">My Cart</a></li>
+		</ul>
+	</nav>
+
+	<nav>
+		<ul>
+		<form action="" autocomplete="on">
+		<input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
+		</form>
+		</ul>
+	</nav>
+	</header>-->
+
+<!--PROFILE PART-->
+
+{% for p in profile %}
+<div class="row" id="row">
+	
+		<div class="card col-mg-6 col-sm-4" style="padding-top: 2%;">
+			<center>
+		<img src="/static/images/Profile.png" style="max-height: 75%;max-width: 75%;" class="card-img-top" alt="...">
+		<br><br>
+		<div class="card-body">
+			<h1 class="card-title" style="color: #b630d8"><b> Hello {{p.S_name}} ! </b></h1>
+		</div>
+		</center>
+	</div>
+
+	<div class="card col-mg-6 col-sm-8" style="padding-top: 2%;">
+		<div class="card-body">
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a href="#one" style="color: black;" class="nav-link active" data-toggle="tab">Profile</a>
+				</li>
+				<li class="nav-item">
+					<a href="#two" style="color: black;" class="nav-link" data-toggle="tab">My Books</a>
+				</li>
+				<li class="nav-item">
+					<a href="#three" style="color: black;" class="nav-link" data-toggle="tab">My Orders</a>
+				</li>
+				<li class="nav-item">
+					<a href="#four" style="color: black;" class="nav-link" data-toggle="tab">Change Password</a>
+				</li>
+				<li class="nav-item">
+					<a href="#five" style="color: black;" class="nav-link" data-toggle="tab">Payment Methods</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane fade show active" id="one">
+					<form method="POST" style="padding: 5%;">
+						<div class="form-group">
+							<label for="exampleFormControlInput1">Branch</label>
+							<input class="form-control" type="text" placeholder="{{p.S_branch}}" readonly>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlInput1">Semester</label>
+							<input class="form-control" type="text" placeholder="{{p.S_sem}}" readonly>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlInput1">Email address</label>
+							<input class="form-control" type="text" placeholder="{{p.S_email}}" readonly>
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlInput1">Phone number</label>
+							<input class="form-control" type="text" placeholder="{{p.S_contact}}" readonly>
+						</div> 
+					</form>
+					{% endfor %}	
+				</div>
+				<style>
+                    br{
+                        display: none !important;
+                    }
+				</style>
+				<div class="tab-pane fade" id="two">
+					<div class="container">
+						<div class="row m-0">
+							<div class="col-md-6" style="margin-top: 5%;">
+
+								<table width="100%">
+									<h4 class="text-muted"><b>Books Sold </b></h4>
+									{% for s in booksold %}
+									<tr>
+										<td>
+											<div class="image-parent">
+												<img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/don_quixote.jpg">
+											</div>
+										</td>
+										<td>
+											<h5>{{s.Book_name}} </h5><br>
+											<p><i class="fas fa-rupee-sign"></i> {{s.Price}}</p>
+										</td>
+										<td align="right">
+											<a></a>
+										</td>
+										<br>
+									</tr>
+									{% endfor %}
+								</table>
+							</div>
+							<div class="col-md-6" style="margin-top: 5%;">
+
+								<table width="100%">
+									<h4 class="text-muted"><b>Books to be Sold</b></h4>
+									{% for s in booksold %}
+									<tr>
+										<td>
+											<div class="image-parent">
+												<img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/don_quixote.jpg">
+											</div>
+										</td>
+										<td>
+											<h5>{{s.Book_name}} </h5><br>
+											<p><i class="fas fa-rupee-sign"></i> {{s.Price}}</p>
+										</td>
+										<td align="right">
+											<a class="btn btn-outline-success btn-sm" href="{{url_for('update_form',Book_id = s.Book_id)}}">Edit Info</a>
+										</td>
+										<br>
+									</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+						<div>
+							<a class="btn btn-outline-success mt-3 ml-3" href="{{url_for('product_form')}}">Sell A Book</a>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="three" style="padding: 5%;">
+					<div class="container">
+						<div class="row m-0">
+							<h4 class="text-muted">Order Details</h4>
+							<div class="col-md-12" style="margin-top: 5%;">
+								<table width="100%">
+									{% for s in booksold %}
+									<tr>
+										<td>
+											<div class="image-parent">
+												<img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/don_quixote.jpg">
+											</div>
+										</td>
+										<td>
+											<h5> Book Title : {{s.Book_name}} </h5><br>
+											<p>Price : {{s.Price}}</p>
+										</td>
+										<td align="right">
+											<a class="btn btn-outline-success btn-sm" href="{{url_for('receipt')}}">Receipt</a>
+										</td>
+										<br>
+									</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="four" style="padding: 5%;">
+					<form role="form" method="POST">
+						<div class="form-group">
+							<label for="email">What email address did you register with?</label>
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email address" required autocomplete="off">
+						</div>
+						<button type="submit" class="btn btn-outline-success btn-sm">Submit</button>
+					</form>
+				</div>
+				<div class="tab-pane fade" id="five" style="padding: 5%;">
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Wallet</label>
+						<input class="form-control" type="text" placeholder="&#8377;0.00" readonly>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">UPI ID</label>
+						<input class="form-control" type="text" placeholder="-" readonly>
+					</div>
+				</div>  
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+</body>
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5f15f0c47258dc118bee9b7c/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,176 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+}
+
+body {
+    background: #00C9FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+:root {
+	--text-clr: #4f4f4f;
+}
+
+p {
+	color: #6c757d;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text-clr);
+}
+
+a:hover {
+	text-decoration: none;
+	color: var(--text-clr);
+}
+
+h2 {
+	color: var(--text-clr);
+	font-size: 1.5rem;
+}
+
+.main_payment {
+	background: #fff; 
+}
+
+
+
+
+
+.product_name {
+	color: black;
+	font-size: 1.4rem;
+	text-transform: capitalize;
+	font-weight: 500;
+}
+
+.payment-title p{
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+
+
+.price-money h3{
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+
+.page-item input{
+	line-height: 27px;
+	padding: 3px;
+	font-size: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.page-link:hover {
+	text-decoration: none;
+	color: #495057;
+	outline: none !important;
+}
+
+.page-link:focus {
+	box-shadow: none;
+}
+
+/*-------------MODAL-----------------*/
+
+
+.modal-confirm {    
+	color: #434e65;
+	width: 525px;
+  }
+  .modal-confirm .modal-content {
+	padding: 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+  }
+  .modal-confirm .modal-header {
+	background: #47c9a2;
+	border-bottom: none;   
+	position: relative;
+	text-align: center;
+	margin: -20px -20px 0;
+	border-radius: 5px 5px 0 0;
+	padding: 35px;
+  }
+  .modal-confirm h4 {
+	text-align: center;
+	font-size: 36px;
+	margin: 10px 0;
+  }
+  .modal-confirm .form-control, .modal-confirm .btn {
+	min-height: 40px;
+	border-radius: 3px; 
+  }
+  .modal-confirm .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	color: #fff;
+	text-shadow: none;
+	opacity: 0.5;
+  }
+  .modal-confirm .close:hover {
+	opacity: 0.8;
+  }
+  .modal-confirm .icon-box {
+	color: #fff;    
+	width: 95px;
+	height: 95px;
+	display: inline-block;
+	border-radius: 50%;
+	z-index: 9;
+	border: 5px solid #fff;
+	padding: 15px;
+	text-align: center;
+  }
+  .modal-confirm .icon-box i {
+	font-size: 64px;
+	margin: -4px 0 0 -4px;
+  }
+  .modal-confirm.modal-dialog {
+	margin-top: 80px;
+  }
+  .modal-confirm .btn, .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #eeb711 !important;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 6px 20px;
+	border: none;
+  }
+  .modal-confirm .btn:hover, .modal-confirm .btn:focus {
+	background: #eda645 !important;
+	outline: none;
+  }
+  .modal-confirm .btn span {
+	margin: 1px 3px 0;
+	float: left;
+  }
+  .modal-confirm .btn i {
+	margin-left: 1px;
+	font-size: 20px;
+	float: right;
+  }
+  .trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+  }
