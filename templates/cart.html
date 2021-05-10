@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap(main).css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/static/css/cart.css"> <!-- Resource style -->
+	<script src="/static/js/contents.js"></script> <!-- Modernizr -->
+  	
+
+
+	<title>My Cart</title>
+</head>
+<body>
+  {% block body %}
+	<div class="menu-wrap">
+  <input type="checkbox" class="toggler" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <ul>
+        <li><img src="/static/images/Profile.png" height="30%" width="30%"></li>
+        <li style="color: white; font-size: 2rem;">{{session.name}}</li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Wallet</a></li>
+        <li><a href="#">Refer a Friend</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+	<header>
+	 <nav>
+     <ul>
+     <li><h1>  BookADDA</h1></li>
+     </ul>
+    </nav>
+
+     <nav>
+      <ul>
+      <li><a href="{{ url_for('welcome') }}">Home</a></li>
+      <li><a href="{{ url_for('profile') }}">Profile</a></li>
+      <li><a href="{{ url_for('cart') }}">My Cart</a></li>
+      </ul>
+    </nav>
+
+    <nav>
+     <ul>
+      <form action="" autocomplete="on">
+       <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
+     </form>
+     </ul>
+    </nav>
+    </header>
+<body>
+<!----Cart items---->
+	<div class="row" style="padding: 0px;"> 
+	<div class="cart-page col-md-10">
+		<table>
+			<tr>
+				<th style="border-top-left-radius: 5px;">Product</th>
+				<th>Remove Item</th>
+				<th style="border-top-right-radius: 5px;">SubTotal</th>
+      </tr>
+      {% if cart | length <= 0 %}
+        <tr>
+          <td>
+            <div class="cart-info">
+              <div>
+              <br>
+                <h1 style="color:#696969;">Cart is Empty</h1>
+              <br>
+              </div>
+            </div>
+          </td>
+          <td>
+        </tr>
+      {% else %}
+        {% for item in cart %}
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img src="frst.jpg">
+              <div>
+                <p><b>{{item.Book_name}}</b></p>
+                <small>Author: {{item.Author}}</small><br>
+                <small>Publisher: {{item.Publisher}}</small><br>
+                <small>Edition: {{item.Edition}}</small><br>
+              </div>
+            </div>
+          </td>
+          <td>
+            <form action="{{url_for('delete_item',Item_id = item.Item_id)}}" method="POST">
+              <button type="submit" class="btn btn-danger btn-sm ">Remove</button>
+            </form>
+          </td>
+          <td>₹{{item.Price}}</td>
+        </tr>
+        {%  endfor %}
+      {% endif %}
+		</table>
+		
+	</div>
+	
+	
+
+
+		<div class="total-price col-md-2">
+			<table>
+				<th colspan="2" style="border-top-left-radius: 5px;border-top-right-radius: 5px;font-weight: 5px;"><h5>Total</h5></th>
+				
+				<tr>
+          <td>Total</td>
+          <td>₹{{total}}</td>
+        </tr>
+        <tr>
+          <td>
+            <a class="btn btn-success" href="{{ url_for('transaction') }}">Checkout</a>
+          </td>
+        </tr>
+			</table>
+			</div>
+    </div>
+    {% endblock %}
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5f15f0c47258dc118bee9b7c/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>

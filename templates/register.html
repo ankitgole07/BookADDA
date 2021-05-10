@@ -1,0 +1,60 @@
+{% include 'includes/_messages.html' %}
+
+</!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap(main).css">
+<link rel="stylesheet" type="text/css" href="/static/css/register.css">
+
+<head>
+	<title>Register Page</title>
+</head>
+
+<body>
+{% block body %}
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+   <div class="content">
+
+			<form method="POST" style="padding:5%">
+    			<center>
+    			<br><h1><strong>Sign up</strong></h1><br>
+              <h6>Full Name *</h6>
+			  <input type="text" name="name" class="form-control" placeholder="Enter your name" Required>
+			  <br>
+			  <h6>Roll number *</h6>
+			  <input type="text" name="roll" class="form-control" placeholder="Enter your roll number" Required>    
+              <br>
+			  <h6>Email *</h6>
+			  <input type="email" name="email" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter your mail" Required>    
+              <br>
+              <h6>Contact *</h6>
+			  <input type="number" name="contact" class="form-control"  placeholder="Enter your contact" Required>
+			  <br> 
+              <h6>Branch *</h6>
+              <input  type="text" name="branch" class="form-control" placeholder="Enter your branch" Required>
+              <br>
+              <h6>Semester *</h6>
+              <input type="number" name="sem" class="form-control"  placeholder="Enter your semester" min="1" max="8" Required>
+			  <br>
+			  <h6>Password *</h6>
+			  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" Required>
+			  <br>
+			  <h6>Confirm Password *</h6>
+              <input type="password" name="confirm" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" Required>
+			  <br>
+			  
+			  <button type="submit" class="btn btn-outline-success btn-block" style =" border-radius:2rem;"><b>Register</b></button>    
+              <br>
+
+    			    <p style="color:orange;">Already have an account?<br><a id="A" href="{{ url_for('login') }}"> Login !</a></p>
+				    </center>  
+				  </form>
+		
+				
+  </div>
+  {% endblock %}
+</body>
+</html>
+
+

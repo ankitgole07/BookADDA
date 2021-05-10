@@ -1,0 +1,80 @@
+*{
+  padding:0px;
+  margin:0px;
+  box-sizing:border-box;
+  
+}
+
+body{
+ background: #373B44;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+table td {
+  font-size: 17px;
+}
+
+
+img{
+  padding: 3%;
+}
+
+.menu{
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+
+.product {
+  width: 30%;
+  margin: 30px;
+}
+.form-group {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.form-group .glyphicon {
+    color:#95d7fc;
+  }
+.input-group input{
+ text-align: center;
+}
+
+.panel-body{
+ margin-bottom: 1%;
+ margin-top: 1%;
+}
+
+section{
+  position:relative;
+  background: #f8f9fa7d;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 2%;
+  border:1px solid rgba(0,0,0,0.1);
+  top:4.5em;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px black;
+}
+
+section .container-fluid .thumbnail .caption .buttons{
+  margin:1px;
+}
+
+section .desc h5 .glyphicon{
+  color:#5cb85c;
+}
+section .desc .breadcrumb{
+  padding-left:0;
+}
+
+section .desc button:hover{
+  background-color:#fff;
+  border:1px solid #2874f0;
+  color:#2874f0;
+}
+
+

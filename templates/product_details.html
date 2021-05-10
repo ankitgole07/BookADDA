@@ -1,0 +1,233 @@
+{% include 'includes/_messages.html' %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/74e6fadba6.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+        <!--jQuery library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!--Latest compiled and minified JavaScript-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="/static/css/pdetails.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Product Description</title>
+</head>
+<div class="menu-wrap">
+  <input type="checkbox" class="toggler" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <ul>
+        <li><img src="/static/images/Profile.png" height="30%" width="30%"></li>
+        <li style="color: white; font-size: 2rem;">{{session.name}}</li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Wallet</a></li>
+        <li><a href="#">Refer a Friend</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+	<header>
+	 <nav>
+     <ul>
+     <li><h1>  BookADDA</h1></li>
+     </ul>
+    </nav>
+
+     <nav>
+      <ul>
+      <li><a href="{{ url_for('welcome') }}">Home</a></li>
+      <li><a href="{{ url_for('profile') }}">Profile</a></li>
+      <li><a href="{{ url_for('cart') }}">My Cart</a></li>
+      </ul>
+    </nav>
+
+    <nav>
+     <ul>
+      <form action="" autocomplete="on">
+       <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
+     </form>
+     </ul>
+    </nav>
+    </header>
+<body>
+{% block body %}  
+  {% for item in product %}
+
+
+ <section>
+   <div class="container-fluid">
+     <div class="row">
+       <!-- Product picture -->
+       <div class="col-sm-5">
+         <div class="thumbnail">
+           <img src="https://static.kopykitab.com/image/cache/data/gigatech/gtech005-300x380.jpg" class="img-responsive" alt="">
+           
+           <div class="caption">
+            <form method="POST">
+             <div class="row buttons">
+                
+                <button type="submit" class="btn  col-sm-4 col-sm-offset-2 btn-lg" style="background-color:#ff9f00; color:#fff;font-size:1em;"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;ADD TO CART</button>
+                
+                <button type="submit" class="btn col-sm-4 col-sm-offset-1 btn-lg" style="background-color:#fb641b; color:#fff;font-size:1em;"><i class="fa fa-bolt" style="font-size:1.2em;"></i>BUY NOW</button>
+              
+              </div>
+            </form>
+           </div>
+         </div>
+                    <!-- Specifications -->
+           
+           <div class="panel panel-default" id="specifications">
+             <div class="panel-heading" style="background-color:#fff;">
+               <h3>Specifications</h3>
+             </div>
+       
+             <div class="panel-body">
+               
+               <h4>Seller Details</h4>
+               
+               <table class="table table-default">
+                 <tbody>
+                   <tr><td class="col-sm-4">Seller name :</td> <td class="col-sm-8">{{item.S_name}}</td></tr>
+                   
+                   <tr><td class="col-sm-4">Branch :</td>  <td class="col-sm-8">{{item.S_branch}}</td></tr>
+                   
+                   <tr><td class="col-sm-4">Type of Book :</td>  <td class="col-sm-8">{{item.Category}}</td></tr>
+                   
+                   <tr><td class="col-sm-4">Semester :</td>  <td class="col-sm-8">{{item.S_sem}}</td></tr>
+
+                   <tr><td class="col-sm-4">Email ID :</td>  <td class="col-sm-8">{{item.S_email}}</td></tr>
+                   
+                 </tbody>
+                 
+               </table>
+             
+             </div>
+             
+             
+           </div>
+         </div>
+       
+       <!-- Product Description -->
+       <div class="col-sm-7 desc">
+        
+         <div>
+           <div class="panel panel-default">
+            <div class="panel-body">
+           <ol class="breadcrumb col-sm-12" style="background-color:transparent;">
+             <li><b><a href="{{ url_for('welcome') }}">Home</a></b></li>
+             <li class="active">Book Description</li>
+           </ol>
+           
+           <h2>Book Name : {{item.Book_name}}</h2>
+           
+           <div class="row">
+              <div class="col-sm-2">
+                <span class="label label-success">4.6 <span class="glyphicon glyphicon-star"></span></span>
+              </div>
+           
+              <div class="col-sm-5">
+                <strong>2,421 Ratings & Reviews</strong>
+              </div>
+           
+          </div>
+           
+         <div>
+          <h3>Rs {{item.Price}}</h3> 
+         </div>
+           
+         <div>
+          
+           <br> 
+         <div class="row">
+           <div class="col-sm-2">
+             <h4><b>Author :</b></h4>
+           </div>
+           <div class="col-sm-10">
+             
+             <h4>{{item.Author}}</h4>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-sm-2">
+             <h4><b>Edition :</b></h4>
+           </div>
+           <div class="col-sm-10">
+             
+             <h4>{{item.Edition}}</h4>
+           </div>
+         </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <h4><b>Publisher:</b></h4>
+            </div>
+            <div class="col-sm-10">
+              
+              <h4>{{item.Publisher}}</h4>
+            </div>
+          </div>
+           </div>
+           <br><br>
+         
+         </div>
+       </div>
+         <br><br>
+         
+         <div class="container col-xs-12">
+           <div class="panel panel-default">
+             <div class="panel-body">
+               <div class="col-sm-12">
+                  <h2> DESCRIPTION</h2>
+                  <h4>{{item.Description}}</h4>
+                 
+               </div>
+             </div>
+          </div>          
+        </div>
+         
+     </div>
+   </div>
+  </section> 
+   
+   <script type="text/javascript">
+   	function up(max) {
+    document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) + 1;
+    if (document.getElementById("myNumber").value >= parseInt(max)) {
+        document.getElementById("myNumber").value = max;
+    }
+}
+function down(min) {
+    document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) - 1;
+    if (document.getElementById("myNumber").value <= parseInt(min)) {
+        document.getElementById("myNumber").value = min;
+    }
+}
+
+   </script>
+   {% endfor %}
+
+   {% endblock %}
+</body>
+
+</html>

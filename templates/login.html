@@ -1,0 +1,114 @@
+{% include 'includes/_messages.html' %}
+
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap(main).css">
+<link rel="stylesheet" type="text/css" href="/static/css/login.css">
+
+<head>
+	<title>Login</title>
+</head>
+
+<body>
+	<!--	<div class="menu-wrap">
+  <input type="checkbox" class="toggler" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <ul>
+        <li><img src="Profile.png" height="30%" width="30%"></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Wallet</a></li>
+        <li><a href="#">Refer a Friend</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+	<header>
+	 <nav>
+     <ul>
+     <li><h1>  BookADDA</h1></li>
+     </ul>
+    </nav>
+
+     <nav>
+      <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">My Cart</a></li>
+      </ul>
+    </nav>
+
+    <nav>
+     <ul>
+      <form action="" autocomplete="on">
+       <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
+     </form>
+     </ul>
+    </nav>
+    </header>
+-->{% block body %}
+   <div class="context">
+			      <div class="row justify-content-center" style="padding:5%;">
+
+			       <div class="col-lg-6 col-sm-6" style="margin-top: 6%;margin-bottom: 0;">
+			         <img src="/static/images/login.png" height="80%" width="600px">
+			       </div>
+			               	
+			         <div class="details col-mg-3 col-sm-3">
+				 <form method="POST" style="padding:5%">
+			 	<center>
+			           <br>
+			            <h1>
+					<strong> Login</strong>
+				   </h1>
+			           <br>       
+			             <h6>Email</h6>
+			             <input type="email" name="email" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter your mail" required>
+			            <br> 
+			            <h6>Password</h6>
+			             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+				    <br>
+			            <p>Forgot password ?<br><a id="A" href="#"> Click here!</a>
+				    </p><br>
+
+			            <button type="submit" class="btn btn-outline-success btn-block" style =" border-radius:2rem;"><b>Login</b></button><br>
+
+			            <p>Don't have account?<br><a id="A" href="{{ url_for('register') }}"> Register now!</a></p>
+				         
+				  </form>
+				  </div>
+				</div>
+    </div>
+    {% endblock %}
+
+<div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+</body>
+</html>
