@@ -88,7 +88,15 @@
 		<section class="cd-gallery">
 			<ul>
 				{% for b in booklist %}
-				<li class="mix color-1 check1 radio2 option3" style="background:#ffffffb8"><a href="{{url_for('product_details',Book_id = b.Book_id)}}"><img src="/static/images/img/img-1.jpg" alt="Image 1"><center><b><h5 style="color:black;">{{b.Book_name}}</h5></b></center></a></li>
+				<li class="mix color-1 check1 radio2 option3" style="background:#ffffffb8;margin: 10px;">
+					<a href="{{url_for('product_details',Book_id = b.Book_id)}}">
+						<div><img src="/static/images/img/img-1.jpg" alt="Image 1"></div>
+						<div class="row">
+							<div class="col-7" style="color:black; padding: 5%;"><h5>{{b.Book_name}}</h5><br></div>
+							<div class="col-3" style="color:black; padding: 5%;"><h5><i class="fas fa-rupee-sign">&nbsp;{{b.Price}}</i> </h5></div>
+						</div>
+						<div style="color:black; padding: 2%;"><p>{{b.Description}}</p></div>
+					</a></li>
 				{% endfor %}
 			</ul>
 			<div class="cd-fail-message">No results found</div>
